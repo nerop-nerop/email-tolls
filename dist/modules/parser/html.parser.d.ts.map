@@ -1,0 +1,1 @@
+{"version":3,"file":"html.parser.d.ts","sourceRoot":"","sources":["../../../src/modules/parser/html.parser.ts"],"names":[],"mappings":"AAEA,OAAO,EAGL,WAAW,EAEZ,MAAM,oBAAoB,CAAC;AAE5B,qBACa,UAAU;IACrB,OAAO,CAAC,QAAQ,CAAC,MAAM,CAA+B;IAEhD,SAAS,CACb,IAAI,EAAE,MAAM,EAAE,EACd,WAAW,UAAO,GACjB,OAAO,CAAC,WAAW,EAAE,CAAC;YAwBX,kBAAkB;YA6BlB,iBAAiB;CA2BhC"}

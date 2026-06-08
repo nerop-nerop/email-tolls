@@ -1,0 +1,50 @@
+{
+  "name": "@messenger/email-tool",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "nest build",
+    "dev": "nest start --watch",
+    "start": "node dist/main",
+    "lint": "tsc --noEmit"
+  },
+  "pkg": {
+    "assets": [
+      "dist/public/**/*"
+    ],
+    "outputPath": "../../poppd"
+  },
+  "dependencies": {
+    "@azure/msal-node": "^2.16.2",
+    "@messenger/database": "*",
+    "@microsoft/microsoft-graph-client": "^3.0.7",
+    "@nestjs/common": "^10.4.15",
+    "@nestjs/config": "^3.3.0",
+    "@nestjs/core": "^10.4.15",
+    "@nestjs/platform-express": "^10.4.15",
+    "bullmq": "^5.34.5",
+    "cheerio": "^1.0.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "dotenv": "^16.4.7",
+    "exceljs": "^4.4.0",
+    "googleapis": "^144.0.0",
+    "helmet": "^8.0.0",
+    "imapflow": "^1.0.181",
+    "nodemailer": "^6.9.16",
+    "openai": "^4.77.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1",
+    "validator": "^13.12.0"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^10.4.9",
+    "@nestjs/schematics": "^10.2.3",
+    "@types/express": "^5.0.0",
+    "@types/multer": "^1.4.12",
+    "@types/node": "^22.10.2",
+    "@types/nodemailer": "^6.4.17",
+    "@types/validator": "^13.12.2",
+    "typescript": "^5.7.2"
+  }
+}

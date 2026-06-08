@@ -1,0 +1,38 @@
+# Системные файлы (мусор от операционных систем)
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Папки зависимостей и сборщиков (занимают много места, их не пушат в репозиторий)
+node_modules/
+bower_components/
+.npm/
+
+# Логи и кэш
+*.log
+.eslintcache
+.parcel-cache
+.sass-cache
+.turbo/
+.vercel/
+
+# Файлы конфигурации среды (содержат секретные ключи и пароли!)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Папки со скомпилированным кодом (результат сборки)
+dist/
+build/
+out/
+
+# Редакторы кода и IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
