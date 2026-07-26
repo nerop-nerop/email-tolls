@@ -1,94 +1,133 @@
-# Email Tool
+# Email Tool - React Application
 
-Парсер почты + Excel + рассылка на базе NestJS.
+Современное веб-приложение для управления почтовыми аккаунтами, парсинга веб-страниц и массовой рассылки писем.
 
-## Быстрый старт
+## 🚀 Возможности
 
-Браузер: http://localhost:3001
+- **Управление почтовыми аккаунтами** - добавление и удаление SMTP/IMAP аккаунтов
+- **Веб-парсер** - извлечение заголовков, описаний и ссылок с веб-страниц
+- **Рассылка писем** - отправка одиночных и массовых email-рассылок
+- **Современный UI** - адаптивный интерфейс на React + TypeScript
 
-### Настройка
+## 📋 Требования
 
-1. Скопируйте `.env.example` в `.env`:
-   ```bash
-   cp .env.example .env
-   ```
+- Node.js 18+ 
+- npm или yarn
 
-2. Заполните необходимые переменные окружения:
-   - **SMTP** — для отправки писем через SMTP
-   - **OAuth** (Google/Microsoft) — для OAuth-аутентификации
-   - **OpenAI** — для AI-генерации контента писем
-
-### Основные переменные окружения
+## 🛠️ Установка
 
 ```bash
-# Порт приложения
-EMAIL_TOOL_PORT=3001
-
-# SMTP (для отправки писем)
-SMTP_HOST=smtp.mail.ru
-SMTP_PORT=465
-SMTP_USER=your-email@mail.ru
-SMTP_PASS=your-password
-
-# Google OAuth
-GOOGLE_CLIENT_ID=your-client-id
-GOOGLE_CLIENT_SECRET=your-client-secret
-GOOGLE_REDIRECT_URI=http://localhost:3001/api/auth/google/callback
-
-# Microsoft OAuth
-MICROSOFT_CLIENT_ID=your-client-id
-MICROSOFT_CLIENT_SECRET=your-client-secret
-MICROSOFT_REDIRECT_URI=http://localhost:3001/api/auth/microsoft/callback
-
-# OpenAI (для генерации писем)
-OPENAI_API_KEY=your-api-key
-OPENAI_MODEL=gpt-4o-mini
-```
-
-## Установка зависимостей
-
-```bash
+# Установите зависимости
 npm install
-```
 
-## Запуск
-
-### Режим разработки (с авто-перезагрузкой)
-
-```bash
+# Запустите приложение в режиме разработки
 npm run dev
 ```
 
-### Сборка и запуск в production
+Приложение будет доступно по адресу:
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:3001
 
-```bash
-npm run build
-npm start
+## 🔧 Переменные окружения
+
+Создайте файл `.env` в корне проекта:
+
+```env
+PORT=3001
 ```
 
-## Доступные скрипты
+## 📁 Структура проекта
 
-| Команда | Описание |
-|---------|----------|
-| `npm run dev` | Запуск в режиме разработки с watch |
-| `npm run build` | Сборка проекта |
-| `npm start` | Запуск собранного приложения |
-| `npm run lint` | Проверка типов TypeScript |
+```
+├── src/                    # Исходный код React приложения
+│   ├── components/         # React компоненты
+│   │   ├── EmailAccountForm.tsx
+│   │   ├── EmailAccountList.tsx
+│   │   └── WebParser.tsx
+│   ├── hooks/              # Custom React хуки
+│   │   └── useEmailAccounts.ts
+│   ├── api.ts              # API клиент
+│   ├── types.ts            # TypeScript типы
+│   ├── App.tsx             # Главный компонент
+│   ├── App.css             # Стили
+│   ├── index.css           # Глобальные стили
+│   └── main.tsx            # Точка входа
+├── server/                 # Backend сервер
+│   └── index.ts            # Express сервер с API
+├── public/                 # Статические файлы
+├── index.html              # HTML шаблон
+├── package.json            # Зависимости и скрипты
+├── tsconfig.json           # Конфигурация TypeScript (frontend)
+├── tsconfig.server.json    # Конфигурация TypeScript (backend)
+└── vite.config.ts          # Конфигурация Vite
+```
 
-## Остановка
+## 🎯 Использование
 
-Закройте окно консоли или нажмите `Ctrl+C`.
+### 1. Добавление почтового аккаунта
 
-## Технологии
+1. Перейдите на страницу "Аккаунты"
+2. Заполните форму:
+   - Email адрес
+   - Пароль приложения (не основной пароль!)
+   - SMTP настройки (хост, порт)
+   - IMAP настройки (хост, порт)
+3. Нажмите "Добавить аккаунт"
 
-- **NestJS** — backend фреймворк
-- **TypeScript** — язык разработки
-- **BullMQ** — очередь задач
-- **ExcelJS** — работа с Excel файлами
-- **Nodemailer** — отправка email
-- **Cheerio** — парсинг HTML
-- **OpenAI** — AI-генерация контента
+**Пример настроек для Gmail:**
+- SMTP Host: `smtp.gmail.com`, Port: `587`
+- IMAP Host: `imap.gmail.com`, Port: `993`
+- Используйте [пароль приложения](https://support.google.com/accounts/answer/185833)
 
-## Лицензия
+### 2. Парсинг веб-страниц
+
+1. Перейдите на страницу "Парсер и рассылка"
+2. Введите URL для парсинга
+3. Нажмите "Спарсить"
+4. Просмотрите результаты (заголовки, описания, ссылки)
+
+### 3. Отправка рассылки
+
+1. Выберите подключенный почтовый аккаунт
+2. Введите получателей (через запятую для массовой рассылки)
+3. Укажите тему письма
+4. Напишите текст сообщения
+5. Нажмите "Отправить"
+
+## 🌐 API Endpoints
+
+| Метод | Endpoint | Описание |
+|-------|----------|----------|
+| POST | `/api/accounts` | Добавить почтовый аккаунт |
+| GET | `/api/accounts` | Получить все аккаунты |
+| DELETE | `/api/accounts/:id` | Удалить аккаунт |
+| POST | `/api/parse` | Спарсить веб-страницу |
+| POST | `/api/send` | Отправить письмо |
+| POST | `/api/send-bulk` | Массовая рассылка |
+
+## 📦 Технологии
+
+**Frontend:**
+- React 19
+- TypeScript
+- React Router DOM
+- Vite
+
+**Backend:**
+- Node.js
+- Express
+- Nodemailer
+- Cheerio (парсинг HTML)
+- Axios
+
+## ⚠️ Важные замечания
+
+1. **Безопасность**: Пароли хранятся в памяти сервера. Для продакшена используйте базу данных с шифрованием.
+2. **Gmail**: Для работы с Gmail необходимо:
+   - Включить двухфакторную аутентификацию
+   - Создать [пароль приложения](https://support.google.com/accounts/answer/185833)
+3. **Лимиты рассылок**: Соблюдайте лимиты почтовых провайдеров (Gmail: ~500 писем/день)
+
+## 📝 Лицензия
 
 MIT
